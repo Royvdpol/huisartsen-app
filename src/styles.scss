@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+p {
+  color: blue;
+}
+
+app-root {
+  height: 100%;
+  flex-direction: column !important;
+  display: flex !important;
+}
+
+main > .container {
+  padding: 60px 15px 0;
+}
