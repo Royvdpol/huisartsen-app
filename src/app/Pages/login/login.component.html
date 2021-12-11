@@ -1,10 +1,18 @@
 <h1>Log in</h1>
-
-<div class="mb-3">
-  <label for="emailAddress" class="form-label">Email adres</label>
-  <input type="email" class="form-control" id="emailAddress" placeholder="naam@voorbeeld.nl" required>
-</div>
-<div class="mb-3">
-  <label for="password" class="form-label">Wachtwoord</label>
-  <input type="password" class="form-control" id="password" placeholder="*********" required>
-</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="username" class="form-label">Email adres</label>
+    <input type="email" class="form-control" name="username" id="username" aria-describedby="emailHelp" required>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Wachtwoord</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="reset" class="btn btn-primary ms-3">Reset</button>
+</form>
+<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+  <div class="container text-center">
+    <span class="text-muted">SPOED</span>
+  </div>
+</footer>
