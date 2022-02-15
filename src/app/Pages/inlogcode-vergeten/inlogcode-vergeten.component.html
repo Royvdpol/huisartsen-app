@@ -1,0 +1,25 @@
+<app-begin-knop></app-begin-knop>
+<h1>Inlogcode vergeten</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="mobile" class="form-label">Voer uw telefoonnummer in</label>
+    <input type="tel" class="form-control" formControlName="mobile" id="mobile" aria-describedby="mobileHelp" required>
+  </div>
+  <div *ngIf="mobile?.invalid && (mobile?.dirty || mobile?.touched)"
+       class="alert alert-danger">
+    <div *ngIf="mobile?.errors?.['required']">
+      Telefoonnummer is verplicht.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Vraag nieuwe inlogcode per e-mail aan</button>
+</form>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title red" id="exampleModalLabel">Let op!!</h1>
+    <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>U krijg een e-mail met een nieuwe inlogcode</strong></p>
+    <a [routerLink]="['/home']" (click)="dismissModal()">Terug naar home</a>
+  </div>
+</ng-template>

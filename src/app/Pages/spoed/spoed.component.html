@@ -1,1 +1,129 @@
-<p>spoed works!</p>
+<app-begin-knop></app-begin-knop>
+<!-- Button trigger modal -->
+<div class="row d-flex justify-content-center align-content-center mt-5">
+  <button type="button" class="btn btn-danger col-6 alarm-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Alarmeer huisarts
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title red" id="exampleModalLabel">Let op!!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>U staat op het punt een noodoproep te doen. Misbruik resulteert in uitschakeling van de
+          functie.</strong></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger col" data-bs-dismiss="modal"
+                [routerLink]="['/noodoproep']">Levensbedreigende situatie
+        </button>
+        <button type="button" class="btn btn-warning col" data-bs-toggle="modal" data-bs-target="#continueEmergency">
+          Niet levensbedreigend maar wel spoedeisend
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Second Modal (Spoedeisende hulp) -->
+<div class="modal fade" id="continueEmergency" tabindex="-1" aria-labelledby="continueEmergencyLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="continueEmergencyLabel">Spoedeisende hulp</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        (Vermoedelijk) letsel:
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option selected disabled>Maak een keuze..</option>
+          <option value="botbreuk">Botbreuk of ernstige verstuiking/kneuzing</option>
+          <option value="bloeding">Bloeding</option>
+          <option value="ernstigeVal">Ernstige val</option>
+          <option value="hoofdletsel">Hoofdletsel</option>
+          <option value="verbranding">Verbranding</option>
+          <option value="overdosisOfVergiftigd">Overdosis of vergiftiging</option>
+          <option value="bewusteloos">Bewusteloosheid</option>
+          <option value="hersenletsel">Hersenletsel</option>
+          <option value="onbekend">Onbekend en niet te achterhalen</option>
+        </select>
+        <div class="form-check mt-3">
+          <input class="form-check-input" type="checkbox" value="alcoholDrugs" id="alcoholDrugs">
+          <label class="form-check-label" for="alcoholDrugs">
+            Het slachtoffer heeft alcohol en/of drugs gebruikt.
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary col" data-bs-toggle="modal" data-bs-target="#thirdModal">Het
+          slachtoffer is mobiel en kan
+          vervoer regelen
+        </button>
+        <button type="button" class="btn btn-primary col" data-bs-toggle="modal" data-bs-target="#fourthModal">Het
+          slachtoffer is <strong>niet</strong> mobiel en/of kan <strong>geen</strong> vervoer
+          regelen
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Third modal (Huisartsenpost)-->
+<div class="modal fade" id="thirdModal" tabindex="-1" aria-labelledby="thirdModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>Huisartsenpost</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Ga naar deze medische post. Men is op de hoogte van uw komst.</p>
+        <p>Skagerrak 10, Veendam</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fourth modal (Slachtoffer locatie)-->
+<div class="modal fade" id="fourthModal" tabindex="-1" aria-labelledby="fourthModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>Huisartsenpost</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="victimLocation" class="form-label">Wat is het adres waar het slachtoffer is?</label>
+          <input type="text" class="form-control" name="victimLocation" id="victimLocation"
+                 aria-describedby="victimLocation" required>
+          <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#fifthModal">
+            Verstuur
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary col" data-bs-toggle="modal" data-bs-target="#fifthModal">Ik ben
+          niet op een adres, ga naar de locatie van dit apparaat.
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fifth modal (map showing)-->
+<div class="modal fade" id="fifthModal" tabindex="-1" aria-labelledby="fifthModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong>Er is hulp onderweg, blijf waar u bent.</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2395.857335414024!2d6.860607801139043!3d53.094797108297044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b7d6bca3114a61%3A0x629e392aaa40a230!2sVredewold%2010%2C%209642%20EP%20Veendam!5e0!3m2!1snl!2snl!4v1642356024227!5m2!1snl!2snl" width="600" height="450" style="border:0; width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

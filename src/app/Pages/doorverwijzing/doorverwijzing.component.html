@@ -1,1 +1,105 @@
-<p>doorverwijzing works!</p>
+<app-begin-knop></app-begin-knop>
+<h1 class="text-center"><i class="bi bi-arrow-90deg-right"></i> Doorverwijzing</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="klacht" class="form-label">Wat is uw klacht?</label>
+    <input type="text" class="form-control" name="klacht" formControlName="klacht" id="klacht" aria-describedby="klacht"
+           required>
+    <div *ngIf="klacht?.invalid && (klacht?.dirty || klacht?.touched)"
+         class="alert alert-danger mt-2">
+      <div *ngIf="klacht?.errors?.['required']">
+        Dit veld is verplicht.
+      </div>
+      <div *ngIf="klacht?.errors?.['minlength']">
+        Vul minimaal 3 letters in.
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    Kies een specialist:
+    <select class="form-select form-select-lg mb-3" autocomplete="on" formControlName="specialist" id="specialist">
+      <option value="Bibber">
+        Dr. Bibber
+      </option>
+      <option value="Tienus">
+        Dr. Tienus
+      </option>
+      <option value="Pol">
+        Dr. Pol
+      </option>
+    </select>
+  </div>
+  <div *ngIf="specialist?.invalid && (specialist?.dirty || specialist?.touched)"
+       class="alert alert-danger mt-2">
+
+    <div *ngIf="specialist?.errors?.['required']">
+      Dit veld is verplicht.
+    </div>
+    <div *ngIf="specialist?.errors?.['minlength']">
+      Vul minimaal 3 letters in.
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 mt-3">Bent u al eerder voor deze klacht behandeld? </label>
+    <div class="col-sm-10 mt-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="eerdereKlacht" id="eerdereKlachtJa" value="ja">
+        <label class="form-check-label" for="eerdereKlachtJa">Ja</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="eerdereKlacht" id="eerdereKlachtNee" value="nee">
+        <label class="form-check-label" for="eerdereKlachtNee">Nee</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 mt-2">Bent u eerder bij deze specialist geweest? </label>
+    <div class="col-sm-10 mt-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="eerdereSpecialist" id="eerdereSpecialistJa" value="ja">
+        <label class="form-check-label" for="eerdereSpecialistJa">Ja</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="eerdereSpecialist" id="eerdereSpecialistNee" value="nee">
+        <label class="form-check-label" for="eerdereSpecialistNee">Nee</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 mt-2">Wilt u vooraf contact met de huisarts hierover? </label>
+    <div class="col-sm-10 mt-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="contactHuisarts" id="contactHuisartsJa" value="ja">
+        <label class="form-check-label" for="contactHuisartsJa">Ja</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="contactHuisarts" id="contactHuisartsNee" value="nee">
+        <label class="form-check-label" for="contactHuisartsNee">Nee</label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          *ngIf="form.valid">Verstuur
+  </button>
+</form>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <strong class="modal-title" id="exampleModalLabel">Gelukt</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bedankt voor uw aanvraag, er wordt zo snel mogelijk contact met u opgenomen.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success col" data-bs-dismiss="modal"
+                [routerLink]="['/home']"><i class="bi bi-house-door"></i> Home
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,19 +6,20 @@
               aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse show" id="navbarColor02" style="">
+      <div class="navbar-collapse collapse" id="navbarColor02" style="">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/home']" data-bs-toggle="collapse"
-               data-bs-target=".navbar-collapse.show">Home</a>
+               data-bs-target=".navbar-collapse.show"><i class="bi bi-house-door"></i> Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/help']" data-bs-toggle="collapse"
-               data-bs-target=".navbar-collapse.show">Help</a>
+               data-bs-target=".navbar-collapse.show"><i class="bi bi-info-circle"></i> Help</a>
           </li>
           <li class="nav-item">
             <a class="nav-link ms-auto" [routerLinkActive]="['active']" [routerLink]="['/profiel']"
-               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Profiel</a>
+               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"><i class="bi bi-person-circle"></i>
+              Profiel</a>
           </li>
         </ul>
       </div>
@@ -33,6 +34,7 @@
     <router-outlet></router-outlet>
   </div>
 </main>
+
 
 <!--<footer class="footer mt-auto py-3 bg-light">-->
 <!--  <div class="container text-center">-->

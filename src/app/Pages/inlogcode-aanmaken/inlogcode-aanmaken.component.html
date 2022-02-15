@@ -1,0 +1,15 @@
+<app-begin-knop></app-begin-knop>
+<h1>Inlogcode aanmaken</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="loginCode" class="form-label">Voer nieuwe inlogcode in</label>
+    <input type="password" class="form-control" formControlName="loginCode" id="loginCode" aria-describedby="loginCodeHelp" required>
+  </div>
+  <div *ngIf="loginCode?.invalid && (loginCode?.dirty || loginCode?.touched)"
+       class="alert alert-danger">
+    <div *ngIf="loginCode?.errors?.['required']">
+      Dit veld is verplicht.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Stel inlog code in</button>
+</form>

@@ -1,5 +1,93 @@
-Venster met een kalender. Als op een datum wordt geklikt,
-ziet de gebruiker een agendaweergave (verticaal) met beschikbare momenten.
-Ook moeten er een keuzemogelijkheid kort of lang consult zijn, zodat alleen
-de passende beschikbare ruimtes getoond worden. Als op een vrij moment geklikt wordt,
-kan de gebruiker de klacht invullen en op 'Inplannen' klikken.
+<app-begin-knop></app-begin-knop>
+<h1 class="text-center"><i class="bi bi-calendar2-plus"></i> Consult aanvraag</h1>
+<form [formGroup]="form">
+  <div class="d-flex justify-content-center">
+  <ngb-datepicker #dp formControlName="datum" navigation="arrows" id="datePicker" [startDate]="dateToday"
+                  [minDate]="dateToday"
+                  [maxDate]="dateMaxReservation"></ngb-datepicker>
+  </div>
+  <div class="mb-3" *ngIf="form.touched">
+    <label for="duurConsult" class="form-label mt-3">Kies kort of lang consult</label>
+    <select formControlName="duurConsult" class="form-select" id="duurConsult">
+      <option value="">Maak een keuze</option>
+      <option>Kort consult</option>
+      <option>Lang consult</option>
+    </select>
+  </div>
+</form>
+<table class="table table-bordered" *ngIf="form.valid && duurConsult?.value === 'Kort consult'">
+  <thead>
+  <tr>
+    <th>Tijd</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>08:00</td>
+    <td class="bg-danger"></td>
+  </tr>
+  <tr>
+    <td>08:30</td>
+    <td class="bg-danger"></td>
+  </tr>
+  <tr>
+    <td>09:00</td>
+    <td class="bg-success" (click)="openModal()"></td>
+  </tr>
+  <tr>
+    <td>09:30</td>
+    <td class="bg-danger"></td>
+  </tr>
+  <tr>
+    <td>10:00</td>
+    <td class="bg-danger"></td>
+  </tr>
+  </tbody>
+</table>
+<table class="table table-bordered" *ngIf="form.valid && duurConsult?.value === 'Lang consult'">
+  <thead>
+  <tr>
+    <th>Tijd</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>08:00</td>
+    <td class="bg-danger"></td>
+  </tr>
+  <tr>
+    <td>09:00</td>
+    <td class="bg-danger"></td>
+  </tr>
+  <tr>
+    <td>10:00</td>
+    <td class="bg-success" (click)="openModal()"></td>
+  </tr>
+  <tr>
+    <td>11:00</td>
+    <td class="bg-danger"></td>
+  </tr>
+  <tr>
+    <td>12:00</td>
+    <td class="bg-danger"></td>
+  </tr>
+  </tbody>
+</table>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title red" id="exampleModalLabel">Vul uw klacht in</h1>
+    <button type="button" class="btn-close" aria-label="Close" (click)="dismissModal()"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="klacht" class="form-label">Wat is uw klacht?</label>
+        <textarea class="form-control" id="klacht" required></textarea>
+      </div>
+      <a [routerLink]="['/home']"><button type="submit" class="btn btn-primary" (click)="dismissModal()">Inplannen</button></a>
+    </form>
+    <a [routerLink]="['/home']" (click)="dismissModal()">Terug naar home</a>
+  </div>
+</ng-template>

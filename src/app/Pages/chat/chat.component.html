@@ -1,17 +1,14 @@
+<app-begin-knop></app-begin-knop>
+<h1 class="text-center"><i class="bi bi-chat-right-dots"></i> Chat met de arts</h1>
 <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1">
   <div class="col">
     <div class="panel panel-default">
-      <div class="panel-heading top-bar">
-        <div class="col">
-          <h3 class="panel-title">Chat met een huisarts</h3>
-        </div>
-      </div>
       <div class="panel-body msg_container_base">
         <div class="row msg_container base_sent">
           <div class="col-md-10 col-xs-10">
             <div class="messages msg_sent">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXRgrTH69Hi8YbrhZJjCkD7ZP5Av1sWJTc6g&usqp=CAU"
+                src="assets/images/doc-avatar.png"
                 class="img-thumbnail">
               <p>Hoi, ik ben de dienstdoende huisarts. Waar kan ik u mee helpen?</p>
               <time datetime="2021-12-10T20:00">Huisarts • 51 min</time>
@@ -21,7 +18,7 @@
         <div class="row msg_container base_receive">
           <div class="col-md-10 col-xs-10">
             <div class="messages msg_receive">
-              <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
+              <img src="assets/images/avatar1.jpeg"
                    class="img-thumbnail">
               <p>Ik heb een vraag</p>
               <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
@@ -32,7 +29,7 @@
           <div class="col-md-10 col-xs-10">
             <div class="messages msg_sent">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXRgrTH69Hi8YbrhZJjCkD7ZP5Av1sWJTc6g&usqp=CAU"
+                src="assets/images/doc-avatar.png"
                 class="img-thumbnail">
               <p>Hoi, ik ben de dienstdoende huisarts. Waar kan ik u mee helpen?</p>
               <time datetime="2021-12-10T20:00">Huisarts • 51 min</time>
@@ -42,7 +39,7 @@
         <div class="row msg_container base_receive">
           <div class="col-md-10 col-xs-10">
             <div class="messages msg_receive">
-              <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
+              <img src="assets/images/avatar1.jpeg"
                    class="img-thumbnail">
               <p>Ik heb een vraag</p>
               <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
@@ -53,7 +50,7 @@
           <div class="col-md-10 col-xs-10">
             <div class="messages msg_sent">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXRgrTH69Hi8YbrhZJjCkD7ZP5Av1sWJTc6g&usqp=CAU"
+                src="assets/images/doc-avatar.png"
                 class="img-thumbnail">
               <p>Hoi, ik ben de dienstdoende huisarts. Waar kan ik u mee helpen?</p>
               <time datetime="2021-12-10T20:00">Huisarts • 51 min</time>
@@ -63,7 +60,7 @@
         <div class="row msg_container base_receive">
           <div class="col-md-10 col-xs-10">
             <div class="messages msg_receive">
-              <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
+              <img src="assets/images/avatar1.jpeg"
                    class="img-thumbnail">
               <p>Ik heb een vraag</p>
               <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
@@ -78,6 +75,31 @@
                         <button class="btn btn-primary ms-1" id="btn-chat">Verzend</button>
                         </span>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center align-content-center mt-5">
+    <button type="button" class="btn btn-outline-primary col-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Pas avatar aan
+    </button>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title red" id="exampleModalLabel">Pas avatar aan</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/images/avatar1.jpeg" alt="avatar1" class="avatar-thumbnail">
+        <img src="assets/images/avatar2.jpeg" alt="avatar1" class="avatar-thumbnail">
+        <img src="assets/images/avatar3.jpeg" alt="avatar1" class="avatar-thumbnail">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary col" data-bs-dismiss="modal">Sla op
+        </button>
       </div>
     </div>
   </div>

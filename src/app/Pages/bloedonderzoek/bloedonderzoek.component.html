@@ -1,1 +1,83 @@
-<p>bloedonderzoek works!</p>
+<app-begin-knop></app-begin-knop>
+<h1 class="text-center"><i class="bi bi-droplet-half"></i> Bloedonderzoek aanvragen</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="bloedonderzoek" class="form-label">Doel onderzoek?</label>
+    <input type="email" class="form-control" formControlName="bloedonderzoek" id="bloedonderzoek"
+           aria-describedby="bloedonderzoek" required>
+  </div>
+  <div *ngIf="bloedonderzoek?.invalid && (bloedonderzoek?.dirty || bloedonderzoek?.touched)"
+       class="alert alert-danger mt-2">
+    <div *ngIf="bloedonderzoek?.errors?.['required']">
+      Dit veld is verplicht.
+    </div>
+    <div *ngIf="bloedonderzoek?.errors?.['minlength']">
+      Vul minimaal 3 letters in.
+    </div>
+  </div>
+  <h3>Onderzoeken op:</h3>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Allergien" id="Allergien">
+    <label class="form-check-label" for="Allergien">
+      Allergieën
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="ijzerTekort" id="ijzerTekort">
+    <label class="form-check-label" for="ijzerTekort">
+      Ijzer tekort
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="volledigBloedonderzoek" id="volledigBloedonderzoek">
+    <label class="form-check-label" for="volledigBloedonderzoek">
+      Volledig bloedonderzoek
+    </label>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 mt-3">Bent u hier al eerder op onderzocht?</label>
+    <div class="col-sm-10 mt-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eerderOnderzocht" id="eerderOnderzochtJa" value="ja"
+               formControlName="eerderOnderzocht">
+        <label class="form-check-label" for="eerderOnderzochtJa">Ja</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eerderOnderzocht" id="eerderOnderzochtNee" value="nee"
+               formControlName="eerderOnderzocht">
+        <label class="form-check-label" for="eerderOnderzochtNee">Nee</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 mt-2">Bent u hier al voor bij de huisarts geweest?</label>
+    <div class="col-sm-10 mt-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eerdereSpecialist" id="eerdereSpecialistJa" value="ja"
+               formControlName="eerdereSpecialist">
+        <label class="form-check-label" for="eerdereSpecialistJa">Ja</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eerdereSpecialist" id="eerdereSpecialistNee" value="nee"
+               formControlName="eerdereSpecialist">
+        <label class="form-check-label" for="eerdereSpecialistNee">Nee</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 mt-2">Wilt u vooraf contact met de huisarts hierover?</label>
+    <div class="col-sm-10 mt-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="contactHuisarts" id="contactHuisartsJa" value="ja"
+               formControlName="contactHuisarts">
+        <label class="form-check-label" for="contactHuisartsJa">Ja</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="contactHuisarts" id="contactHuisartsNee" value="nee"
+               formControlName="contactHuisarts">
+        <label class="form-check-label" for="contactHuisartsNee">Nee</label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3" *ngIf="form.valid" [routerLink]="['/home']">Verstuur</button>
+</form>

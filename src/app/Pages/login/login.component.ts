@@ -9,7 +9,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
-  form!: FormGroup;
+  form: FormGroup = this.formBuilder.group({
+    username: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
   loading = false;
 
   constructor(
@@ -19,20 +22,28 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
+
   }
 
   onSubmit() {
     // stop here if form is invalid
-    // if (this.form.invalid) {
-    //   console.log('invalid');
-    //   return;
-    // }
-    this.router.navigate(['/home']);
+    if (this.form.invalid) {
+      console.log('invalid');
+      return;
+    }
+    if (localStorage.getItem('test')) {
+      this.router.navigate(['/home']);
+    } else {
+      this.router.navigate(['/inlogcode-aanmaken']);
+    }
   }
 
+  get username() {
+    return this.form.get('username');
+  }
+
+  get password() {
+    return this.form.get('password');
+  }
 
 }

@@ -10,6 +10,10 @@ import {DoorverwijzingComponent} from "./pages/doorverwijzing/doorverwijzing.com
 import {BloedonderzoekComponent} from "./pages/bloedonderzoek/bloedonderzoek.component";
 import {MedicijnenComponent} from "./pages/medicijnen/medicijnen.component";
 import {SpoedComponent} from "./pages/spoed/spoed.component";
+import {NoodoproepComponent} from "./pages/noodoproep/noodoproep.component";
+import {InlogcodeVergetenComponent} from "./pages/inlogcode-vergeten/inlogcode-vergeten.component";
+import {InlogcodeAanmakenComponent} from "./pages/inlogcode-aanmaken/inlogcode-aanmaken.component";
+import {ProfielComponent} from "./pages/profiel/profiel.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,6 +25,10 @@ const routes: Routes = [
   { path: 'bloedonderzoek', component: BloedonderzoekComponent },
   { path: 'medicijnen', component: MedicijnenComponent },
   { path: 'spoed', component: SpoedComponent },
+  { path: 'noodoproep', component: NoodoproepComponent },
+  { path: 'profiel', component: ProfielComponent },
+  { path: 'inlogcode-vergeten', component: InlogcodeVergetenComponent },
+  { path: 'inlogcode-aanmaken', component: InlogcodeAanmakenComponent },
   { path: '', redirectTo: '/login' , pathMatch: 'full'},
   { path: '**', pathMatch: 'full',
     component: PagenotfoundComponent },
